@@ -26,4 +26,45 @@ public class Tests {
     Assert.assertFalse(Main.isPasswordComplex("Abcdefg"));
   }
 
+  @Test
+  public void removeDuplicate(){
+    int[] nums = {1,1,2};
+    Assert.assertEquals(2, Main.removeDuplicate(nums));
+  }
+
+  @Test
+  public void SquareEveryDigit_Test(){
+    Assert.assertEquals(811181, Main.squareEveryDigit(9119));
+    Assert.assertEquals(493625, Main.squareEveryDigit(765));
+  }
+
+  @Test
+  public void XO_Test(){
+
+    Assert.assertTrue(Main.XO("ooxx"));
+    Assert.assertFalse(Main.XO("xooxx"));
+    Assert.assertTrue(Main.XO("ooxXm"));
+    Assert.assertTrue(Main.XO("zpzpzpp"));
+    Assert.assertFalse(Main.XO("zzoo"));
+    Assert.assertTrue(Main.XO("xxxooo"));
+    Assert.assertTrue(Main.XO("xxxXooOo"));
+    Assert.assertFalse(Main.XO("xxx23424esdsfvxXXOOooo"));
+    Assert.assertFalse(Main.XO("xXxxoewrcoOoo"));
+    Assert.assertFalse(Main.XO("XxxxooO"));
+    Assert.assertTrue(Main.XO("zssddd"));
+    Assert.assertFalse(Main.XO("Xxxxertr34"));
+    Assert.assertTrue(Main.XO(""));
+  }
+
+  @Test
+  public void commonCharacters_Test(){
+    String[] strings = {"abc", "bdc", "cbaccd"};
+    Assert.assertArrayEquals(new String[] {"b", "c"}, Main.commonCharacters(strings));
+  }
+
+  @Test
+  public void firstNonRepeatingCharacter_Test(){
+    Assert.assertEquals(1, Main.firstNonRepeatingCharacter("abcdcaf"));
+    Assert.assertEquals(6, Main.firstNonRepeatingCharacter("faadabcbbebdf"));
+  }
 }
