@@ -6,9 +6,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
-import java.util.concurrent.atomic.AtomicInteger;
 
 public class Main {
 
@@ -128,8 +126,8 @@ public class Main {
     }
 
     List<String> result = new ArrayList<>();
-    counterMap.forEach((k,v) -> {
-      if(v.equals(list.size())){
+    counterMap.forEach((k, v) -> {
+      if (v.equals(list.size())) {
         result.add(k);
       }
     });
@@ -142,9 +140,9 @@ public class Main {
   public static int firstNonRepeatingCharacter(String string) {
 
     Map<String, Integer> map = new HashMap<>();
-    for(int i = 0; i< string.length(); i++){
+    for (int i = 0; i < string.length(); i++) {
       String letter = String.valueOf(string.charAt(i));
-      if(map.containsKey(letter)) {
+      if (map.containsKey(letter)) {
         map.put(letter, -1);
       } else {
         map.put(letter, i);
@@ -154,11 +152,32 @@ public class Main {
     List<Integer> list = new ArrayList<>(map.values());
     Collections.sort(list);
 
-    for(Integer i : list){
-      if(i != -1){
+    for (Integer i : list) {
+      if (i != -1) {
         return i;
       }
     }
     return -1;
+  }
+
+  public static int mostWordsFound(String[] sentences) {
+
+    int max = 0;
+    for (int i = 0; i < sentences.length; i++) {
+      String[] words = sentences[i].split(" ");
+      if (words.length > max) {
+        max = words.length;
+      }
+    }
+
+    return max;
+  }
+
+  public static int binaryToInteger(String number) {
+    return Integer.parseInt(number, 2);
+  }
+
+  public static int firstOccurrence(String haystack, String needle) {
+    return haystack.indexOf(needle);
   }
 }

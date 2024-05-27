@@ -17,29 +17,29 @@ public class Tests {
   /*==============================================*/
 
   @Test
-  public void isPasswordComplex_True(){
+  public void isPasswordComplex_True() {
     Assert.assertTrue(Main.isPasswordComplex("Abcdefgh1"));
   }
 
   @Test
-  public void isPasswordComplex_False(){
+  public void isPasswordComplex_False() {
     Assert.assertFalse(Main.isPasswordComplex("Abcdefg"));
   }
 
   @Test
-  public void removeDuplicate(){
-    int[] nums = {1,1,2};
+  public void removeDuplicate() {
+    int[] nums = {1, 1, 2};
     Assert.assertEquals(2, Main.removeDuplicate(nums));
   }
 
   @Test
-  public void SquareEveryDigit_Test(){
+  public void SquareEveryDigit_Test() {
     Assert.assertEquals(811181, Main.squareEveryDigit(9119));
     Assert.assertEquals(493625, Main.squareEveryDigit(765));
   }
 
   @Test
-  public void XO_Test(){
+  public void XO_Test() {
 
     Assert.assertTrue(Main.XO("ooxx"));
     Assert.assertFalse(Main.XO("xooxx"));
@@ -57,14 +57,37 @@ public class Tests {
   }
 
   @Test
-  public void commonCharacters_Test(){
+  public void commonCharacters_Test() {
     String[] strings = {"abc", "bdc", "cbaccd"};
-    Assert.assertArrayEquals(new String[] {"b", "c"}, Main.commonCharacters(strings));
+    Assert.assertArrayEquals(new String[]{"b", "c"}, Main.commonCharacters(strings));
   }
 
   @Test
-  public void firstNonRepeatingCharacter_Test(){
+  public void firstNonRepeatingCharacter_Test() {
     Assert.assertEquals(1, Main.firstNonRepeatingCharacter("abcdcaf"));
     Assert.assertEquals(6, Main.firstNonRepeatingCharacter("faadabcbbebdf"));
   }
+
+  @Test
+  public void mostWordsFound_Test() {
+    Assert.assertEquals(6,
+        Main.mostWordsFound(new String[]{
+                "alice and bob love leetcode",
+                "i think so too",
+                "this is great thanks very much"}));
+  }
+
+  @Test
+  public void binaryToInteger_Test(){
+    Assert.assertEquals(5, Main.binaryToInteger("101"));
+    Assert.assertEquals(11, Main.binaryToInteger("1011"));
+  }
+
+  @Test
+  public void firstOccurrence_Test(){
+    Assert.assertEquals(0, Main.firstOccurrence("sadbutsad", "sad"));
+    Assert.assertEquals(-1, Main.firstOccurrence("leetcode", "leeto"));
+  }
+
 }
+
