@@ -1,6 +1,7 @@
 package org.java;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -179,5 +180,62 @@ public class Main {
 
   public static int firstOccurrence(String haystack, String needle) {
     return haystack.indexOf(needle);
+  }
+
+
+  /*CTCI**/
+  public static boolean isUnique(String word) {
+    boolean[] charSet = new boolean[256];
+    for (int i = 0; i < word.length(); i++) {
+      int charVal = word.charAt(i);
+      if (charSet[charVal]) {
+        return false;
+      }
+      charSet[charVal] = true;
+    }
+    return true;
+  }
+
+  public static boolean stringPermutation(String str1, String str2) {
+    if (str1.length() != str2.length()) {
+      return false;
+    }
+    char[] arr1 = str1.toCharArray();
+    char[] arr2 = str2.toCharArray();
+    Arrays.sort(arr1);
+    Arrays.sort(arr2);
+
+    str1 = new String(arr1);
+    str2 = new String(arr2);
+    return str1.equals(str2);
+  }
+
+  //NOTE: if there is more than 1 odd occurrence of a character, is not a palindrome permutation
+  public static boolean palindromePermutation(String word) {
+
+    String s = word.replace(" ", "").toLowerCase();
+    HashMap<Character, Integer> countMap = new HashMap<>();
+
+    for (int i = 0; i < s.length(); i++) {
+      char c = s.charAt(i);
+      if (countMap.containsKey(c)) {
+        countMap.put(c, countMap.get(c) + 1);
+      } else {
+        countMap.put(c, 1);
+      }
+    }
+
+    int odd = 0;
+    for (Map.Entry<Character, Integer> entry : countMap.entrySet()) {
+      if (entry.getValue() % 2 != 0) {
+        odd++;
+      }
+    }
+
+    if (odd > 1) {
+      return false;
+    } else {
+      return true;
+    }
   }
 }

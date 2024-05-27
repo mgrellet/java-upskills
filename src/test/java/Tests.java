@@ -72,21 +72,40 @@ public class Tests {
   public void mostWordsFound_Test() {
     Assert.assertEquals(6,
         Main.mostWordsFound(new String[]{
-                "alice and bob love leetcode",
-                "i think so too",
-                "this is great thanks very much"}));
+            "alice and bob love leetcode",
+            "i think so too",
+            "this is great thanks very much"}));
   }
 
   @Test
-  public void binaryToInteger_Test(){
+  public void binaryToInteger_Test() {
     Assert.assertEquals(5, Main.binaryToInteger("101"));
     Assert.assertEquals(11, Main.binaryToInteger("1011"));
   }
 
   @Test
-  public void firstOccurrence_Test(){
+  public void firstOccurrence_Test() {
     Assert.assertEquals(0, Main.firstOccurrence("sadbutsad", "sad"));
     Assert.assertEquals(-1, Main.firstOccurrence("leetcode", "leeto"));
+  }
+
+  @Test
+  public void isUnique_Test() {
+    Assert.assertTrue(Main.isUnique("acbdefg"));
+    Assert.assertFalse(Main.isUnique("CrackingTheCode"));
+  }
+
+  @Test
+  public void stringPermutation_Test() {
+    Assert.assertTrue(Main.stringPermutation("ab", "ba"));
+    Assert.assertFalse(Main.stringPermutation("ab", "b"));
+    Assert.assertTrue(Main.stringPermutation("abcd", "dcba"));
+  }
+
+  @Test
+  public void palindromePermutation_Test() {
+    Assert.assertTrue(Main.palindromePermutation("Tact Coa"));
+    Assert.assertFalse(Main.palindromePermutation("Tact Co"));
   }
 
 }
