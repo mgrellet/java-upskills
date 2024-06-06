@@ -238,4 +238,41 @@ public class Main {
       return true;
     }
   }
+
+  // https://leetcode.com/problems/score-of-a-string/
+  public static int scoreOfAString(String s) {
+    int result = 0;
+    for (int i = 0; i < s.length() - 1; i++) {
+      result += Math.abs(s.charAt(i) - s.charAt(i + 1));
+    }
+    return result;
+  }
+
+  public static char[] reverseString(char[] s) {
+    int i = 0;
+    int j = s.length - 1;
+    while (i < j) {
+      char c = s[i];
+      s[i] = s[j];
+      s[j] = c;
+      i++;
+      j--;
+    }
+    return s;
+  }
+
+  public static int jewelsAndStones(String jewels, String stones) {
+    int count = 0;
+    char[] je = jewels.toCharArray();
+    char[] st = stones.toCharArray();
+
+    for (int i = 0; i < jewels.length(); i++) {
+      for (int j = 0; j < stones.length(); j++) {
+        if (je[i] == st[j]) {
+          count++;
+        }
+      }
+    }
+    return count;
+  }
 }

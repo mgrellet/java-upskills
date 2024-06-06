@@ -108,5 +108,23 @@ public class Tests {
     Assert.assertFalse(Main.palindromePermutation("Tact Co"));
   }
 
+  @Test
+  public void scoreOfAString_Test(){
+    Assert.assertEquals(13, Main.scoreOfAString("hello"));
+    Assert.assertEquals(50, Main.scoreOfAString("zaz"));
+  }
+
+  @Test
+  public void reverseString_Test(){
+    char[] arr = {'h', 'e', 'l', 'l', 'o'};
+    Assert.assertArrayEquals(new char[]{'o', 'l', 'l', 'e', 'h'}, Main.reverseString(arr));
+  }
+
+  @Test
+  public void jewelsAndStones_Test(){
+    Assert.assertEquals(3, Main.jewelsAndStones("aA", "aAAbbbb"));
+    Assert.assertEquals(0, Main.jewelsAndStones("z", "ZZ"));
+  }
+
 }
 
